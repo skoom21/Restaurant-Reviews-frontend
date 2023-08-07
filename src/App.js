@@ -50,14 +50,14 @@ function App() {
 
         <div className="container mt-3">
           <Routes>
-            <Route path={("/","/restaurants")} element={<RestaurantList />} />
+            <Route exact path={("/","/restaurants")} element={<RestaurantList />} />
             <Route
               path="/restaurants/:id/review"
               element={<AddReview user={user} />}
             />
             <Route
               path="/restaurants/:id"
-              element={<Restaurant user={user} />}
+              element={<Restaurant user={user}/>}
             />
             <Route
               path="/login"
