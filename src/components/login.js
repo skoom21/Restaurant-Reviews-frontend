@@ -21,30 +21,6 @@ const Login = (props) => {
   };
 
   return (
-    // <div className="submit-form">
-    //   <div class="d-flex justify-content-center bd-highlight mb-2">
-    //     <div className="form-group">
-    //       <label htmlFor="name" class="p-2 bd-highlight">Name</label>
-    //       <input 
-    //         type="text"
-    //         className="form-control"
-    //         id="name"
-    //         required
-    //         value={user.name}
-    //         onChange={handleInputChange}
-    //         name="name"
-    //       />
-    //     </div>
-
-    //     <div className="form-group">
-        
-    //     </div>
-
-    //     <button onClick={login} className="btn btn-success">
-    //       Login
-    //     </button>
-    //   </div>
-    // </div>
 <section className="vh-100 gradient-custom">
       <div className="container py-5 h-100">
         <div className="row d-flex justify-content-center align-items-center h-100">
@@ -58,7 +34,7 @@ const Login = (props) => {
                   <p className="text-white-50 mb-5">Please enter your login and password!</p>
 
                   <div className="form-outline form-white mb-4">
-                  <label htmlFor="name" class="p-2 bd-highlight">Name</label>
+                  <label htmlFor="name" className="p-2 bd-highlight">Name</label>
                   <input 
                     type="text"
                     className="form-control"

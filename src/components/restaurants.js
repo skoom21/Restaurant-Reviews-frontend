@@ -47,12 +47,17 @@ const Restaurant = ({user}) =>{
     });
   }
 
+  const styles = {
+    //styles for white font
+    color: "#FCFBFC",
+  }
+
   return(
     <div>
     {restaurant ? (
       <div>
-        <h5>{restaurant.name}</h5>
-        <p>
+        <h5 style={styles}>{restaurant.name}</h5>
+        <p style={styles}>
           <strong>Cuisine: </strong>
           {restaurant.cuisine}
           <br />
@@ -60,10 +65,17 @@ const Restaurant = ({user}) =>{
           {restaurant.address.building} {restaurant.address.street},{" "}
           {restaurant.address.zipcode}
         </p>
-        <Link to={`/restaurants/${restaurant.id}/review`} className="btn btn-primary">
+        {user?(
+        <Link to={`/restaurants/${id}/review`} className="btn btn-primary">
           Add Review
         </Link>
-        <h4>Reviews</h4>
+        ):(
+          <Link to={`/login`} className="btn btn-primary">
+          Login to Review
+        </Link>
+        )}
+        <p></p>
+        <h4 style={styles}>Reviews</h4>
         <div className="row">
           {restaurant.reviews.length > 0 ? (
             restaurant.reviews.map((review, index) => {
@@ -80,7 +92,7 @@ const Restaurant = ({user}) =>{
                         <strong>Date: </strong>
                         {review.date}
                       </p>
-                      {user && user.id === review.user_id && (
+                      { user.name && user.id === review.user_id && (
                         <div className="row">
                           <button
                             onClick={() => deleteReview(review._id, index)}
@@ -107,14 +119,14 @@ const Restaurant = ({user}) =>{
               );
             })
           ) : (
-            <div className="col-sm-4">
+            <div style={styles} className="col-sm-4">
               <p>No reviews yet.</p>
             </div>
           )}
         </div>
       </div>
     ) : (
-      <div>
+      <div style={styles}>
         <br />
         <p>No restaurant selected.</p>
       </div>

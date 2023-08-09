@@ -6,6 +6,7 @@ import AddReview from "./components/addReview";
 import Login from "./components/login";
 import Restaurant from "./components/restaurants";
 import RestaurantList from "./components/restaurantsList";
+import Home from "./components/home";
 
 function App() {
   const [user, setUser] = React.useState(null);
@@ -21,7 +22,7 @@ function App() {
   return (
       <div>
         <nav className="navbar navbar-expand navbar-dark bg-dark">
-          <Link to="/restaurants" className="navbar-brand">
+          <Link to="/" className="navbar-brand">
             Restaurant Reviews
           </Link>
           <ul className="navbar-nav mr-auto">
@@ -50,7 +51,8 @@ function App() {
 
         <div className="container mt-3">
           <Routes>
-            <Route exact path={("/","/restaurants")} element={<RestaurantList />} />
+            <Route path="/" element={<Home/>}/>
+            <Route exact path="/restaurants" element={<RestaurantList />} />
             <Route
               path="/restaurants/:id/review"
               element={<AddReview user={user} />}
